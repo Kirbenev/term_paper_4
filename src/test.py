@@ -15,19 +15,21 @@ response = requests.get(endpoint, params={"text": "python"})
 print("/n/n")
 #pprint(response.json()["items"])
 d = response.json()["items"]
-list = []
+vacancies = []
+
+
 
 for i in d:
  #   sl = [i["name"], i.get("salary"), i["alternate_url"]]
     name = i["name"]
     salary = i.get("salary")
+    print(type(salary))
     url = i["alternate_url"]
-    requirements
-    list.append(sl)
+    requirements = i.get('snippet')
+    requirementss = requirements.get('requirement')
+    vacancies.append(Vacancy(name, url, salary, requirementss))
 
-for i in list:
-    print(i)
-print(len(list))
+print(vacancies)
 
 #class Vacancy():
  #   """ Vacancy class """
